@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import styles from './Options.module.css';
 
 const Options = ({
   options,
@@ -7,14 +8,20 @@ const Options = ({
   handleResetFeedback,
 }) => {
   return (
-    <div>
+    <div className={styles.optionsWrapper}>
       {options.map((item) => (
-        <button onClick={() => onOptionClick(item)} key={item}>
+        <button
+          className={styles.btn}
+          onClick={() => onOptionClick(item)}
+          key={item}
+        >
           {item}
         </button>
       ))}
       {isResetButtonVisible && (
-        <button onClick={handleResetFeedback}>Reset</button>
+        <button className={styles.btn} onClick={handleResetFeedback}>
+          Reset
+        </button>
       )}
     </div>
   );

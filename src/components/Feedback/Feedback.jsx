@@ -1,20 +1,20 @@
 import PropTypes from 'prop-types';
-
+import styles from './Feedback.module.css';
 const Feedback = ({ feedback, totalFeedback }) => {
   const positiveFeedbackPercentage = Math.round(
     (feedback.good / totalFeedback) * 100
   );
 
   return (
-    <div>
+    <div className={styles.feedbackWrapper}>
       <ul>
         {Object.entries(feedback).map(([name, count]) => (
-          <li key={name}>
+          <li className={styles.item} key={name}>
             {name}: {count}
           </li>
         ))}
       </ul>
-      <p>Total: {totalFeedback}</p>
+      <p className={styles.item}>Total: {totalFeedback}</p>
       <p>Positive: {positiveFeedbackPercentage}%</p>
     </div>
   );
