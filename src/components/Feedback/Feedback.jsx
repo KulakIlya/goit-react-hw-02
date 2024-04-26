@@ -1,10 +1,6 @@
 import PropTypes from 'prop-types';
 import styles from './Feedback.module.css';
-const Feedback = ({ feedback, totalFeedback }) => {
-  const positiveFeedbackPercentage = Math.round(
-    (feedback.good / totalFeedback) * 100
-  );
-
+const Feedback = ({ feedback, totalFeedback, positiveFeedbackPercentage }) => {
   return (
     <div className={styles.feedbackWrapper}>
       <ul>
@@ -22,6 +18,7 @@ const Feedback = ({ feedback, totalFeedback }) => {
 export default Feedback;
 
 Feedback.propTypes = {
-  feedback: PropTypes.array,
+  feedback: PropTypes.object,
   totalFeedback: PropTypes.number,
+  positiveFeedbackPercentage: PropTypes.number,
 };
